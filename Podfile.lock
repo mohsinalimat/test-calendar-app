@@ -1,0 +1,62 @@
+PODS:
+  - MaterialComponents/BottomAppBar (70.0.0):
+    - MaterialComponents/Buttons
+    - MaterialComponents/NavigationBar
+    - MaterialComponents/private/Math
+    - MDFInternationalization
+  - MaterialComponents/ButtonBar (70.0.0):
+    - MaterialComponents/Buttons
+    - MaterialComponents/private/Application
+    - MDFInternationalization
+  - MaterialComponents/Buttons (70.0.0):
+    - MaterialComponents/Ink
+    - MaterialComponents/private/Math
+    - MaterialComponents/private/Shapes
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/Typography
+    - MDFInternationalization
+    - MDFTextAccessibility
+  - MaterialComponents/Ink (70.0.0):
+    - MaterialComponents/private/Math
+  - MaterialComponents/NavigationBar (70.0.0):
+    - MaterialComponents/ButtonBar
+    - MaterialComponents/private/Math
+    - MaterialComponents/Typography
+    - MDFInternationalization
+    - MDFTextAccessibility
+  - MaterialComponents/private/Application (70.0.0)
+  - MaterialComponents/private/Math (70.0.0)
+  - MaterialComponents/private/Shapes (70.0.0):
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowLayer
+  - MaterialComponents/ShadowElevations (70.0.0)
+  - MaterialComponents/ShadowLayer (70.0.0):
+    - MaterialComponents/ShadowElevations
+  - MaterialComponents/Typography (70.0.0):
+    - MaterialComponents/private/Application
+    - MaterialComponents/private/Math
+  - MDFInternationalization (1.1.0)
+  - MDFTextAccessibility (1.2.0)
+  - SpreadsheetView (0.8.4)
+
+DEPENDENCIES:
+  - MaterialComponents/BottomAppBar
+  - SpreadsheetView
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - MaterialComponents
+    - MDFInternationalization
+    - MDFTextAccessibility
+    - SpreadsheetView
+
+SPEC CHECKSUMS:
+  MaterialComponents: 7c107af5ae6566de2f1ba94bde3db99d1b874bab
+  MDFInternationalization: b5b8626628abf026e630e5ebaeee563037712cbb
+  MDFTextAccessibility: 94098925e0853551c5a311ce7c1ecefbe297cdb6
+  SpreadsheetView: 17c55b6dc82099993cc2ceb818248d19f3220998
+
+PODFILE CHECKSUM: 6c1695f7c3002723968b45109b80931584aac83a
+
+COCOAPODS: 1.5.0
