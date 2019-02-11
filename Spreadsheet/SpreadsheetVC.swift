@@ -20,28 +20,36 @@ class SpreadsheetVC: UIViewController {
     let days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
     var hours = [String]()
     let data = [
-        ["", "", "", "", "", "Take medicine", "", "", "", "", "", "", "", "", "", "", "Movie with family", "", "", "", "", "", ""],
-        ["", "", "", "Leave for cabin", "", "", "", "", "Lunch with Tim", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "", "Downtown parade", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "Fireworks show", "", "", ""],
-        ["", "", "", "", "", "", "", "", "Family BBQ", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "Some text", "", "", "", "", "", "", "", "", "", "", "Some text", "", "", "", "", "", ""],
+        ["", "", "", "Some text", "", "", "", "", "Some text", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "Some text", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "Some text", "", "", ""],
+        ["", "", "", "", "", "", "", "", "Some text", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
         ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "Return home", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "Some text", "", "", "", "", "", ""],
         
     ]
+    let solidWidth:CGFloat = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        commonInitBottomAppBarTypicalUseSwiftExample()
-        
+        commonInitBottomAppBar()
+        spreadsheetConfig()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        spreadsheetView.flashScrollIndicators()
+    }
+    
+    func spreadsheetConfig() {
         spreadsheetView.dataSource = self
         spreadsheetView.delegate = self
         spreadsheetView.bounces = false
         
         spreadsheetView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 0)
         
-        //spreadsheetView.intercellSpacing = CGSize(width: 4, height: 1)
-        spreadsheetView.gridStyle = .solid(width: 1, color: Color.scheduleGrid)
+        spreadsheetView.gridStyle = .solid(width: solidWidth, color: Color.scheduleGrid)
         
         spreadsheetView.register(TimeCell.self, forCellWithReuseIdentifier: String(describing: TimeCell.self))
         spreadsheetView.register(DayTitleCell.self, forCellWithReuseIdentifier: String(describing: DayTitleCell.self))
@@ -51,13 +59,8 @@ class SpreadsheetVC: UIViewController {
             hours.append(String(format: "%02d:00", i))
         }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        spreadsheetView.flashScrollIndicators()
-    }
 
-    func commonInitBottomAppBarTypicalUseSwiftExample() {
+    func commonInitBottomAppBar() {
         titleLab.text = getMonthYear()
         
         bottomBarView.autoresizingMask = [ .flexibleWidth, .flexibleTopMargin ]
@@ -133,7 +136,7 @@ extension SpreadsheetVC: SpreadsheetViewDataSource, SpreadsheetViewDelegate {
     
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, widthForColumn column: Int) -> CGFloat {
         
-        return (self.view.frame.width/8)-1
+        return (self.view.frame.size.width/CGFloat(days.count+1))-solidWidth
     }
     
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, heightForRow row: Int) -> CGFloat {
