@@ -1,3 +1,3 @@
 # test-calendar-app
 
-![Calendar](1.png)
+<img src="1.png" width="300">
